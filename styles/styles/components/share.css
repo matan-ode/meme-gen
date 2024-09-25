@@ -2,5 +2,6 @@
     cursor: pointer;
     text-decoration: none;
     border: 1px solid black;
-    color: black
+    color: black;
+    padding: 3px;
 }

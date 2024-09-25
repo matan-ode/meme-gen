@@ -1,12 +1,9 @@
 'use strict'
 
 var gImgs
-
 // var gMemes
 var gMeme
-
 var gKeywordSearchCountMap
-
 
 
 function createMeme(imgId) {
@@ -30,10 +27,6 @@ function getMeme() {
 function getImgById(imgId){
     return gImgs.find(img => img.id === imgId)
 }
-
-
-
-
 
 function createImgs() {
     gImgs = []

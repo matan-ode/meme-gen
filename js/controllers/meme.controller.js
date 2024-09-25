@@ -39,13 +39,13 @@ function drawText(lineSettings, x, y) {
     gCtx.strokeText(lineSettings.txt, x, y)
 }
 
-function onChangeColor(color, elInput){
+function setTextColor(color, elInput){
     const firstLineSettings = getMeme().lines[0]
     firstLineSettings.color = color
     renderMeme(getMeme().selectedImgId)
 }
 
-function onEditText(text, elInput){
+function setLineText(text, elInput){
     const firstLineSettings = getMeme().lines[0]
     firstLineSettings.txt = text
     renderMeme(getMeme().selectedImgId)
