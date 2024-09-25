@@ -20,6 +20,11 @@
         <div class="canvas-container">
             <canvas height="500px" width="500px"></canvas>
         </div>
+
+        <div class="tool-bar">
+            <input type="text" name="text" id="text" placeholder="Add text" oninput="onEditText(value, this)">
+            <input type="color" value="#ffffff" name="txt-color" id="txt-color" oninput="onChangeColor(value, this)">
+        </div>
     </section>
 
 
