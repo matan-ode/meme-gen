@@ -2,6 +2,7 @@
 
 let gElCanvas
 let gCtx
+let gTextSize = {width:0, height:0}
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -14,7 +15,7 @@ function onInit() {
     renderMeme(getMeme().selectedImgId)
 }
 
-function onImgSelect(imgId){
+function onImgSelect(imgId) {
     restartToolbar()
     setImg(imgId)
 }
@@ -25,12 +26,36 @@ function renderMeme(imgId) {
 
 function coverCanvasWithImgAndText(imgId) {
     const elImg = new Image()
-    elImg.src = getImgById(imgId).url    
+    elImg.src = getImgById(imgId).url
     elImg.onload = () => {
+        // Draw img
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        const centerTop = { x: gElCanvas.width / 2, y: 50 }
-        const firstLineSettings = getMeme().lines[0]
-        drawText(firstLineSettings, centerTop.x, centerTop.y)
+
+        // Draw txt lines
+        const linesSettings = getMeme().lines
+        for (var i = 0; i < linesSettings.length; i++) {
+            if (i === 0) {
+                const centerTop = { x: gElCanvas.width / 2, y: 50 }
+                drawText(linesSettings[i], centerTop.x, centerTop.y)
+                if (i === getCurrLineIdx()) drawRect(centerTop.x, centerTop.y)
+            }
+            else if (i === 1) {
+                const centerBottom = { x: gElCanvas.width / 2, y: gElCanvas.height - 50 }
+                drawText(linesSettings[i], centerBottom.x, centerBottom.y)
+                if (i === getCurrLineIdx()) drawRect(centerBottom.x, centerBottom.y)
+            }
+            else {
+                const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
+                drawText(linesSettings[i], center.x, center.y)
+                if (i === getCurrLineIdx()) drawRect(center.x, center.y)
+            }
+        }
+        // linesSettings.forEach(lineSettings => {
+        //     drawText(lineSettings, centerTop.x, centerTop.y)
+        //     centerTop.y
+        // })
+        // const firstLineSettings = getMeme().lines[0]
+        // drawText(firstLineSettings, centerTop.x, centerTop.y)
     }
 }
 
@@ -43,41 +68,60 @@ function drawText(lineSettings, x, y) {
     gCtx.textBaseline = 'middle'
     gCtx.fillText(lineSettings.txt, x, y)
     gCtx.strokeText(lineSettings.txt, x, y)
+
+    gTextSize.width = gCtx.measureText(lineSettings.txt).width    
+    gTextSize.height = lineSettings.size
+    
 }
 
-function setTextColor(color, elInput){
-    const firstLineSettings = getMeme().lines[0]
+function drawRect(offsetX, offsetY) {
+    gCtx.strokeStyle = 'white'
+    gCtx.strokeRect(offsetX - (gTextSize.width / 2), offsetY - (gTextSize.height / 2), gTextSize.width, gTextSize.height)
+    // gCtx.fillStyle = ''
+    // gCtx.fillRect(offsetX, offsetY, 120, 120)
+}
+
+function setTextColor(color, elInput) {
+    const firstLineSettings = getMeme().lines[getCurrLineIdx()]
     firstLineSettings.color = color
     renderMeme(getMeme().selectedImgId)
 }
 
-function setLineText(text, elInput){
-    const firstLineSettings = getMeme().lines[0]
+function setLineText(text, elInput) {
+    const firstLineSettings = getMeme().lines[getCurrLineIdx()]
     firstLineSettings.txt = text
     renderMeme(getMeme().selectedImgId)
 }
 
-function onIncreaseFontSize(){
+function onIncreaseFontSize() {
     //Model
     increaseFontSize()
     //Dom
     renderMeme(getMeme().selectedImgId)
 }
 
-function onDecreaseFontSize(){
+function onDecreaseFontSize() {
     //Model
     decreaseFontSize()
     //Dom
     renderMeme(getMeme().selectedImgId)
 }
 
-function restartToolbar(){
-    const txt = document.querySelector('input[name="text"]')
-    const txtColor = document.querySelector('input[name="txtColor"]')
-    
-    txt.value = ''
-    txtColor.value = '#ffffff'
+function onAddLine() {
+    //Model
+    addLine()
+    chooseLine(getMeme().lines.length-1)
+    //Dom
+    renderMeme(getMeme().selectedImgId)
 }
+
+function onSwitchLine() {
+    //Model
+    switchLine()
+    //Dom
+    renderMeme(getMeme().selectedImgId)
+}
+
 // function renderCanvas() {
 //     gCtx.fillStyle = '#ffffff'
 //     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)

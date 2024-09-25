@@ -39,6 +39,12 @@
             <div class="tool-bar flex flex-direction-column align-center center">
                 <input class="text" type="text" name="text" id="text" placeholder="Add text"
                     oninput="setLineText(value, this)">
+
+                <section class="lines-edit">
+                    <button class="add-line" onclick="onAddLine()">+</button>
+                    <button class="add-line" onclick="onSwitchLine()">▲▼</button>
+                </section>
+
                 <section class="text-edit">
                     <input type="color" value="#ffffff" name="txtColor" id="txtColor"
                         oninput="setTextColor(value, this)">

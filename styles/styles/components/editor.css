@@ -24,6 +24,10 @@
     font-weight: 500;
 }
 
+.tool-bar .lines-edit{
+    margin-bottom: 10px;
+}
+
 .tool-bar .text-edit{
     margin-bottom: 10px;
 }
