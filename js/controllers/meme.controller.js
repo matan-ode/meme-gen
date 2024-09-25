@@ -15,6 +15,7 @@ function onInit() {
 }
 
 function onImgSelect(imgId){
+    restartToolbar()
     setImg(imgId)
 }
 
@@ -56,6 +57,13 @@ function setLineText(text, elInput){
     renderMeme(getMeme().selectedImgId)
 }
 
+function restartToolbar(){
+    const txt = document.querySelector('input[name="text"]')
+    const txtColor = document.querySelector('input[name="txtColor"]')
+    
+    txt.value = ''
+    txtColor.value = '#ffffff'
+}
 // function renderCanvas() {
 //     gCtx.fillStyle = '#ffffff'
 //     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
