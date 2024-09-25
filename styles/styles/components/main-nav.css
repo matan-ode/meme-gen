@@ -1,0 +1,13 @@
+.main-nav-list li a {
+    /* line-height: 4.5625em;
+    height: 4.5625em;
+    display: block; */
+    padding: 15px;
+    margin-inline-start: 3em;
+    font-size: 1.3em;
+
+}
+
+.main-nav-list {
+    margin-right: 10em;
+}

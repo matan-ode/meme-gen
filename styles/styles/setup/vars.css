@@ -1,0 +1,12 @@
+:root {
+    /* pallet */
+
+    --clr-bg-primary: #22252c;
+    --clr-bg-secondary: #383b42;
+
+
+        /* mq */
+        --break-l: 980px;
+        --break-m: 800px;
+        --break-s: 600px;
+}

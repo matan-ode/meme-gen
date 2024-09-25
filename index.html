@@ -8,28 +8,44 @@
     <title>Meme-Generator</title>
 </head>
 
-<body onload="onInit()">
-    <header>
-        <h1>Meme Generator</h1>
+<body onload="onInit()" class="main-layout">
+    <header class="full main-header">
+        <section class="flex align-center space-between center">
+            <div class="logo">MemeGen.</div>
+            <!-- <div class="burger-menu">
+            <div class="line line-top"></div>
+            <div class="line line-mid"></div>
+            <div class="line line-bottom"></div>
+            </div> -->
+            <nav class="main-nav">
+                <ul class="main-nav-list flex clean-list">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+
+            </nav>
+        </section>
     </header>
-    <section class="gallery">
-    </section>
 
-    <section class="editor">
-        <div class="canvas-container">
-            <canvas height="500px" width="500px"></canvas>
-        </div>
+    <main>
+        <section class="gallery">
+        </section>
 
-        <div class="tool-bar">
-            <input type="text" name="text" id="text" placeholder="Add text" oninput="setLineText(value, this)">
-            <input type="color" value="#ffffff" name="txt-color" id="txt-color" oninput="setTextColor(value, this)">
-        </div>
-        <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
-            Download
-        </a>
+        <section class="editor">
+            <div class="canvas-container">
+                <canvas height="500px" width="500px"></canvas>
+            </div>
 
-    </section>
+            <div class="tool-bar">
+                <input type="text" name="text" id="text" placeholder="Add text" oninput="setLineText(value, this)">
+                <input type="color" value="#ffffff" name="txt-color" id="txt-color" oninput="setTextColor(value, this)">
+            </div>
+            <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
+                Download
+            </a>
 
+        </section>
+    </main>
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/meme.service.js"></script>

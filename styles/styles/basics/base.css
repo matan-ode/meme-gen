@@ -2,11 +2,40 @@
     box-sizing: border-box;
 }
 
+html {
+    font-family: poppins, serif;
+    color: white
+}
+
+body {
+    margin: 0;
+    background-color: var(--clr-bg-primary);
+}
+
 /* img {
     width: 500px;
     height: 500px;
 } */
 
+img {
+    width: 100%;
+}
+
 input {
     margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 1em;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }

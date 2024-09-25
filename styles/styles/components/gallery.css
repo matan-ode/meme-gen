@@ -1,17 +1,21 @@
 .gallery {
-    text-align: center;
+    background-color: var(--clr-bg-secondary);
+    padding: 0.7em;
+
+    border-radius: 0.625em;
 }
 
-.gallery img{
+.gallery img {
     margin-bottom: 10px;
-    
-    border-radius: 30px;
-    
-    outline: 0px rgb(109, 228, 188) solid;
+
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    outline: 0px #1DA996 solid;
     transition: 100ms;
     cursor: pointer;
 }
 
 .gallery img:hover {
-    outline: 7px rgb(109, 228, 188) solid;
+    outline: 7px rgba(36, 198, 177, 50%) solid;
 }
