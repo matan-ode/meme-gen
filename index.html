@@ -36,13 +36,13 @@
                 <canvas height="500px" width="500px"></canvas>
             </div>
 
-            <div class="tool-bar">
-                <input type="text" name="text" id="text" placeholder="Add text" oninput="setLineText(value, this)">
+            <div class="tool-bar flex flex-direction-column align-center center">
+                <input class="text" type="text" name="text" id="text" placeholder="Add text" oninput="setLineText(value, this)">
                 <input type="color" value="#ffffff" name="txt-color" id="txt-color" oninput="setTextColor(value, this)">
+                <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
+                    Download
+                </a>
             </div>
-            <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
-                Download
-            </a>
 
         </section>
     </main>

@@ -4,6 +4,9 @@
     --clr-bg-primary: #22252c;
     --clr-bg-secondary: #383b42;
 
+    
+    --clr-txt-primary: #ffff;
+    --clr-txt-secondary: #3d3d3d;
 
         /* mq */
         --break-l: 980px;

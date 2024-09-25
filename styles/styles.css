@@ -15,9 +15,10 @@
 @import url('./styles/components/main-header.css');
 @import url('./styles/components/logo.css');
 @import url('./styles/components/main-nav.css');
+@import url('./styles/components/editor.css');
 
 
 
 
 /* Media Queries */
-/* @import url('./styles/setup/mq.css'); */
+@import url('./styles/setup/mq.css');

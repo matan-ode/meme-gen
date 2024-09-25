@@ -1,0 +1,29 @@
+.editor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.5em;
+}
+
+.editor .tool-bar {
+    background-color: var(--clr-bg-secondary);
+    border-radius: 1.875em;
+}
+
+.tool-bar .text {
+    width: 28.125em;
+    height: 3.75em;
+    border-radius: 1.75em;
+}
+
+.tool-bar .text::placeholder{
+    text-align: center;
+    
+    color: var(--clr-txt-secondary);
+    font-size: 1.5625em;
+    font-family: poppins;
+    font-weight: 500;
+}
+
+.editor .canvas-container {
+    border: ;
+}
