@@ -9,16 +9,15 @@ function onInit() {
     // addListeners()
     // resizeCanvas()
     createImgs()
-    renderMeme(1)
+    createMeme(1)
+    renderMeme(getMeme().selectedImgId)
 }
 
 function renderMeme(imgId) {
-    createMeme(imgId)
-    coverCanvasWithImg(imgId)
-
+    coverCanvasWithImgAndText(imgId)
 }
 
-function coverCanvasWithImg(imgId) {
+function coverCanvasWithImgAndText(imgId) {
     const elImg = new Image()
     elImg.src = getImgById(imgId).url    
     elImg.onload = () => {
