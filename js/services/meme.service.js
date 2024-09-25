@@ -16,8 +16,8 @@ function createMeme(imgId) {
         lines: [
             {
                 txt: 'I sometimes eat Falafel',
-                size: 20,
-                color: 'red'
+                size: 40,
+                color: 'white'
             }
         ]
     }
@@ -26,6 +26,14 @@ function createMeme(imgId) {
 function getMeme() {
     return gMeme
 }
+
+function getImgById(imgId){
+    return gImgs.find(img => img.id === imgId)
+}
+
+
+
+
 
 function createImgs() {
     gImgs = []
