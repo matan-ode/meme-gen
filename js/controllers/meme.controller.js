@@ -9,8 +9,13 @@ function onInit() {
     // addListeners()
     // resizeCanvas()
     createImgs()
-    createMeme(1)
+    renderGallery()
+    setImg(1)
     renderMeme(getMeme().selectedImgId)
+}
+
+function onImgSelect(imgId){
+    setImg(imgId)
 }
 
 function renderMeme(imgId) {

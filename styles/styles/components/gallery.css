@@ -1,0 +1,17 @@
+.gallery {
+    text-align: center;
+}
+
+.gallery img{
+    margin-bottom: 10px;
+    
+    border-radius: 30px;
+    
+    outline: 0px rgb(109, 228, 188) solid;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    outline: 7px rgb(109, 228, 188) solid;
+}
