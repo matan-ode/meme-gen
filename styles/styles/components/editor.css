@@ -23,3 +23,15 @@
     font-family: poppins;
     font-weight: 500;
 }
+
+.tool-bar .text-edit{
+    margin-bottom: 10px;
+}
+
+.tool-bar button{
+    border: 0px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: poppins, serif;
+}

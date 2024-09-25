@@ -57,6 +57,20 @@ function setLineText(text, elInput){
     renderMeme(getMeme().selectedImgId)
 }
 
+function onIncreaseFontSize(){
+    //Model
+    increaseFontSize()
+    //Dom
+    renderMeme(getMeme().selectedImgId)
+}
+
+function onDecreaseFontSize(){
+    //Model
+    decreaseFontSize()
+    //Dom
+    renderMeme(getMeme().selectedImgId)
+}
+
 function restartToolbar(){
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')

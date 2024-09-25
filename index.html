@@ -37,8 +37,14 @@
             </div>
 
             <div class="tool-bar flex flex-direction-column align-center center">
-                <input class="text" type="text" name="text" id="text" placeholder="Add text" oninput="setLineText(value, this)">
-                <input type="color" value="#ffffff" name="txtColor" id="txtColor" oninput="setTextColor(value, this)">
+                <input class="text" type="text" name="text" id="text" placeholder="Add text"
+                    oninput="setLineText(value, this)">
+                <section class="text-edit">
+                    <input type="color" value="#ffffff" name="txtColor" id="txtColor"
+                        oninput="setTextColor(value, this)">
+                    <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
+                    <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
+                </section>
                 <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
                     Download
                 </a>

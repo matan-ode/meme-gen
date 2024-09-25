@@ -23,3 +23,10 @@ function getMeme() {
     return gMeme
 }
 
+function increaseFontSize() {
+    gMeme.lines[0].size += 5
+}
+
+function decreaseFontSize() {
+    gMeme.lines[0].size -= 5
+}
