@@ -81,3 +81,4 @@ function restartToolbar() {
     txt.value = ''
     txtColor.value = '#ffffff'
 }
+

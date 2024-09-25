@@ -1,10 +1,13 @@
 'use strict'
 
+var gIsDownload = false
 let gElCanvas
 let gCtx
 let gTextSize = {width:0, height:0}
 
+
 function onInit() {
+    gCurrLineIdx = 0
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     // addListeners()
@@ -17,6 +20,7 @@ function onInit() {
 
 function onImgSelect(imgId) {
     restartToolbar()
+    gCurrLineIdx = 0
     setImg(imgId)
 }
 
@@ -37,17 +41,17 @@ function coverCanvasWithImgAndText(imgId) {
             if (i === 0) {
                 const centerTop = { x: gElCanvas.width / 2, y: 50 }
                 drawText(linesSettings[i], centerTop.x, centerTop.y)
-                if (i === getCurrLineIdx()) drawRect(centerTop.x, centerTop.y)
+                if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerTop.x, centerTop.y)
             }
             else if (i === 1) {
                 const centerBottom = { x: gElCanvas.width / 2, y: gElCanvas.height - 50 }
                 drawText(linesSettings[i], centerBottom.x, centerBottom.y)
-                if (i === getCurrLineIdx()) drawRect(centerBottom.x, centerBottom.y)
+                if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerBottom.x, centerBottom.y)
             }
             else {
                 const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
                 drawText(linesSettings[i], center.x, center.y)
-                if (i === getCurrLineIdx()) drawRect(center.x, center.y)
+                if (i === getCurrLineIdx() && !gIsDownload) drawRect(center.x, center.y)
             }
         }
         // linesSettings.forEach(lineSettings => {
