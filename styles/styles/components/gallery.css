@@ -21,3 +21,7 @@
 .gallery img:hover {
     outline: 7px rgba(36, 198, 177, 50%) solid;
 }
+
+.gallery.none {
+    display: none;
+}

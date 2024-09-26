@@ -4,6 +4,10 @@
     gap: 4.5em;
 }
 
+.editor.none {
+    display: none;
+}
+
 .editor .tool-bar {
     background-color: var(--clr-bg-secondary);
     border-radius: 1.875em;

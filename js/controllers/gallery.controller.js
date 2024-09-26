@@ -8,3 +8,10 @@ function renderGallery() {
     })
     elGallery.innerHTML = strHtml
 }
+
+function onGallery(){
+    const elEditor = document.querySelector('.editor')
+    elEditor.classList.add('none')
+    const elGallery = document.querySelector('.gallery')
+    elGallery.classList.remove('none')
+}

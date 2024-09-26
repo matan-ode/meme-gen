@@ -22,6 +22,11 @@ function onImgSelect(imgId) {
     restartToolbar()
     gCurrLineIdx = 0
     setImg(imgId)
+    const elEditor = document.querySelector('.editor')
+    elEditor.classList.remove('none')
+    const elGallery = document.querySelector('.gallery')
+    elGallery.classList.add('none')
+
 }
 
 function renderMeme(imgId) {
