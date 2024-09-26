@@ -11,5 +11,7 @@
 canvas {
     background-color: white;
     border: 0.5em solid var(--clr-bg-secondary);
-    border-radius: 1.75em;}
+    border-radius: 1.75em;
+    cursor:grab;
+}
 

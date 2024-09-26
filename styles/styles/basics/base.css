@@ -4,7 +4,8 @@
 
 html {
     font-family: poppins, serif;
-    color: white
+    color: white;
+    cursor: auto;
 }
 
 body {

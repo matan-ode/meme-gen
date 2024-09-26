@@ -3,14 +3,19 @@
 var gIsDownload = false
 let gElCanvas
 let gCtx
-let gTextSize = {width:0, height:0}
+let gTextSize = { width: 0, height: 0 }
+let gIsLineDrag = false
+let gLastPos
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
 
 
 function onInit() {
     gCurrLineIdx = 0
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    // addListeners()
+
+    addListeners()
     // resizeCanvas()
     createImgs()
     renderGallery()
@@ -48,16 +53,22 @@ function coverCanvasWithImgAndText(imgId) {
             if (i === 0) {
                 const centerTop = { x: gElCanvas.width / 2, y: 50 }
                 drawText(linesSettings[i], centerTop.x, centerTop.y)
+                linesSettings[i].pos = centerTop
+                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerTop.x, centerTop.y)
             }
             else if (i === 1) {
                 const centerBottom = { x: gElCanvas.width / 2, y: gElCanvas.height - 50 }
                 drawText(linesSettings[i], centerBottom.x, centerBottom.y)
+                linesSettings[i].pos = centerBottom
+                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerBottom.x, centerBottom.y)
             }
             else {
                 const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
                 drawText(linesSettings[i], center.x, center.y)
+                linesSettings[i].pos = center
+                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(center.x, center.y)
             }
         }
@@ -80,9 +91,14 @@ function drawText(lineSettings, x, y) {
     gCtx.fillText(lineSettings.txt, x, y)
     gCtx.strokeText(lineSettings.txt, x, y)
 
-    gTextSize.width = gCtx.measureText(lineSettings.txt).width    
+
+    gTextSize.width = textWidthMeasure(lineSettings.txt)
     gTextSize.height = lineSettings.size
-    
+
+}
+
+function textWidthMeasure(txt) {
+    return gCtx.measureText(txt).width
 }
 
 function drawRect(offsetX, offsetY) {
@@ -121,7 +137,7 @@ function onDecreaseFontSize() {
 function onAddLine() {
     //Model
     addLine()
-    chooseLine(getMeme().lines.length-1)
+    chooseLine(getMeme().lines.length - 1)
     //Dom
     renderMeme(getMeme().selectedImgId)
 }
@@ -131,6 +147,85 @@ function onSwitchLine() {
     switchLine()
     //Dom
     renderMeme(getMeme().selectedImgId)
+}
+
+
+function onDown(ev) {
+    //* Get the ev pos from mouse or touch
+    const pos = getEvPos(ev)
+    console.log('pos:', pos)
+
+    if (!isLineClicked(pos)) return
+    selectLine()
+    renderMeme(getMeme().selectedImgId)
+    const clickedLine = gMeme.lines[getCurrLineIdx()]
+    gIsLineDrag = true
+
+    //* Switch to the selected line
+
+    //* Save the pos we start from
+    gLastPos = pos
+    const elCanvasCont = document.querySelector('canvas')
+    elCanvasCont.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+    // if (!gIsLineDrag) return
+
+    // const pos = getEvPos(ev)
+    // //* Calc the delta, the diff we moved
+    // const dx = pos.x - gLastPos.x
+    // const dy = pos.y - gLastPos.y
+    // moveCircle(dx, dy)
+    // //* Save the last pos so we will remember where we`ve been and move accordingly
+    // gLastPos = pos
+    // //* The canvas (along with the circle) is rendered again after every move
+    // renderCanvas()
+    // // renderCircle()
+}
+
+function onUp() {
+    gIsLineDrag = false
+    const elCanvasCont = document.querySelector('canvas')
+    elCanvasCont.style.cursor = 'grab'
+}
+
+//* Handle the listeners
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
+}
+
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVS.includes(ev.type)) {
+        //* Prevent triggering the mouse screen dragging event
+        ev.preventDefault()
+        //* Gets the first touch point
+        ev = ev.changedTouches[0]
+        //* Calc the right pos according to the touch screen
+        pos = {
+            x: ev.clientX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.clientY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
 }
 
 // function renderCanvas() {
