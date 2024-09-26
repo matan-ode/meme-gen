@@ -1,3 +1,22 @@
+.share {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    
+    cursor: pointer;
+    text-decoration: none;
+
+    padding: 3px;
+    width: 212px;
+    height: 50px;
+    
+    border-radius: 15px;
+    filter: drop-shadow(0.314px 5.992px 0px #267087);
+    box-shadow: inset 0px 5px 0px #ffffff;
+    background-color: #267087;
+    color: var(--clr-txt-primary);
+}
+
 .download {
     display: grid;
     place-items: center;

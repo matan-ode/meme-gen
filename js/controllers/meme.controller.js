@@ -29,9 +29,11 @@ function renderMeme(imgId) {
 }
 
 function coverCanvasWithImgAndText(imgId) {
+
     const elImg = new Image()
     elImg.src = getImgById(imgId).url
     elImg.onload = () => {
+
         // Draw img
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
 

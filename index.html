@@ -51,9 +51,9 @@
                     <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
                     <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
                 </section>
-                <a class="download" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
-                    Download
-                </a>
+                <ul class="share clean-list" onclick="onShareImg()">Share
+                    <li><a class="download hidden" href="#" onclick="onDownloadImg(this, event)" download="my-meme.jpg">Download</a></li>
+                </ul>
             </div>
 
         </section>
