@@ -1,45 +1,99 @@
-.editor {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4.5em;
-}
+
 
 .editor.none {
     display: none;
 }
 
+.tool-bar{
+    gap: 30px;
+}
+
+.tool-bar:first-child {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+}
+
+
 .editor .tool-bar {
     background-color: var(--clr-bg-secondary);
     border-radius: 1.875em;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
 }
 
 .tool-bar .text {
-    width: 28.125em;
-    height: 3.75em;
-    border-radius: 1.75em;
+    font-size: 2.5625em;
+    font-family: poppins;
+    border-radius: 2.75em;
+
+    text-align: center;
+
+    width: 70%;
+    height: 70px;
 }
 
-.tool-bar .text::placeholder{
+.tool-bar .text::placeholder {
     text-align: center;
-    
+
     color: var(--clr-txt-secondary);
-    font-size: 1.5625em;
-    font-family: poppins;
     font-weight: 500;
 }
 
-.tool-bar .lines-edit{
+.tool-bar .lines-edit {
     margin-bottom: 10px;
 }
 
-.tool-bar .text-edit{
+.tool-bar .text-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    text-align: center;
+
     margin-bottom: 10px;
 }
 
-.tool-bar button{
+.tool-bar button {
     border: 0px solid white;
     border-radius: 5px;
     padding: 10px;
+
+    width: 80px;
+    height: 80px;
+
+    font-size: 35px;
     font-weight: bold;
     font-family: poppins, serif;
+}
+
+.tool-bar .txt-color {
+    position: relative;
+    margin-bottom: 0;
+    
+    width: 80px;
+    height: 80px;
+    
+    border-radius: 10px;
+
+    justify-self: center;
+    align-self: center;
+
+}
+
+.tool-bar .txt-color::before{
+    content: 'Paint';
+    position: absolute;
+    letter-spacing: 1.5px;
+    font-size:18px;
+    font-weight: bold;
+    font-family: poppins, serif;
+
+    top:28px;
+    left: 13px;
+
 }

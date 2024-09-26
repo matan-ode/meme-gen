@@ -2,19 +2,26 @@
     display: grid;
     place-items: center;
     text-align: center;
+    align-self: center;
+    
+    margin-left: 0;
+    padding-left: 0;
+
+    font-size: 2em;
+    font-family: poppins;
+    border-radius: 2.75em;
+
+    width: 70%;
+    height: 70px;
     
     cursor: pointer;
     text-decoration: none;
-
-    padding: 3px;
-    width: 212px;
-    height: 50px;
     
-    border-radius: 15px;
     filter: drop-shadow(0.314px 5.992px 0px #267087);
     box-shadow: inset 0px 5px 0px #ffffff;
     background-color: #267087;
     color: var(--clr-txt-primary);
+    
 }
 
 .download {
@@ -24,12 +31,15 @@
     
     cursor: pointer;
     text-decoration: none;
-
+/* 
     padding: 3px;
     width: 212px;
-    height: 50px;
+    height: 50px; */
+    font-size: 1em;
+    padding: 15px;
+    width: 100%;
     
-    border-radius: 15px;
+    border-radius: 2.75em;
     filter: drop-shadow(0.314px 5.992px 0px #632687);
     box-shadow: inset 0px 5px 0px #ffffff;
     background-color: #8f44bb;

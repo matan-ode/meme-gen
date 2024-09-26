@@ -12,14 +12,14 @@
     <header class="full main-header">
         <section class="flex align-center space-between center">
             <div class="logo">MemeGen.</div>
-            <!-- <div class="burger-menu">
-            <div class="line line-top"></div>
-            <div class="line line-mid"></div>
-            <div class="line line-bottom"></div>
-            </div> -->
+            <div class="burger-menu" onclick="onBurger(this)">
+                <div class="line line-top"></div>
+                <div class="line line-mid"></div>
+                <div class="line line-bottom"></div>
+            </div>
             <nav class="main-nav">
                 <ul class="main-nav-list flex clean-list">
-                    <li><a href="#" onclick="onGallery()">Gallery</a></li>
+                    <li class="gallery-btn clicked"><a href="#" onclick="onGallery()">Gallery</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
 
@@ -33,7 +33,7 @@
 
         <section class="editor none">
             <div class="canvas-container">
-                <canvas height="500px" width="500px" ></canvas>
+                <canvas height="400px" width="400px"></canvas>
             </div>
 
             <div class="tool-bar flex flex-direction-column align-center center">
@@ -41,23 +41,26 @@
                     oninput="setLineText(value, this)">
 
                 <section class="lines-edit">
-                    <button class="add-line" onclick="onAddLine()">+</button>
-                    <button class="add-line" onclick="onSwitchLine()">▲▼</button>
+                    <button class="add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                    <button class="add-line" onclick="onSwitchLine()"><i class="fa-solid fa-repeat"></i></button>
                 </section>
 
                 <section class="text-edit">
                     <input type="color" value="#ffffff" name="txtColor" id="txtColor"
-                        oninput="setTextColor(value, this)">
+                        oninput="setTextColor(value, this)" class="txt-color">
                     <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
                     <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
                 </section>
                 <ul class="share clean-list" onclick="onShareImg()">Share
-                    <li><a class="download hidden" href="#" onclick="onDownloadImg(this, event)" download="my-meme.jpg">Download</a></li>
+                    <li><a class="download hidden" href="#" onclick="onDownloadImg(this, event)"
+                            download="my-meme.jpg">Download</a></li>
                 </ul>
             </div>
 
         </section>
     </main>
+
+    <script src="https://kit.fontawesome.com/5b0cd284fc.js" crossorigin="anonymous"></script>
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/meme.service.js"></script>

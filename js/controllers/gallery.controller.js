@@ -14,4 +14,12 @@ function onGallery(){
     elEditor.classList.add('none')
     const elGallery = document.querySelector('.gallery')
     elGallery.classList.remove('none')
+
+    const elLink = document.querySelector('.main-nav li')
+    elLink.classList.add('clicked')
+}
+
+function onBurger(){
+    const elNav = document.querySelector('.main-nav')
+    elNav.style.right = '0'
 }

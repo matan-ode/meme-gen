@@ -32,20 +32,25 @@ function onImgSelect(imgId) {
     const elGallery = document.querySelector('.gallery')
     elGallery.classList.add('none')
 
+    const elLink = document.querySelector('.main-nav li')
+    elLink.classList.remove('clicked')
+
 }
 
 function renderMeme(imgId) {
-    coverCanvasWithImgAndText(imgId)
+    drawImgAndText(imgId)
 }
 
-function coverCanvasWithImgAndText(imgId) {
+function drawImgAndText(imgId) {
 
     const elImg = new Image()
     elImg.src = getImgById(imgId).url
+    
     elImg.onload = () => {
 
         // Draw img
-        gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+        // gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+        coverCanvasWithImg(elImg)
 
         // Draw txt lines
         const linesSettings = getMeme().lines
@@ -79,6 +84,11 @@ function coverCanvasWithImgAndText(imgId) {
         // const firstLineSettings = getMeme().lines[0]
         // drawText(firstLineSettings, centerTop.x, centerTop.y)
     }
+}
+
+function coverCanvasWithImg(elImg) {
+    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 function drawText(lineSettings, x, y) {
