@@ -25,3 +25,19 @@
 .gallery.none {
     display: none;
 }
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    background-color:rgba(211, 211, 211);
+}
+
+.backdrop.show{
+    opacity: 0.5;
+    pointer-events:all;
+}
