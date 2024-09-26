@@ -53,10 +53,10 @@
 /* Small */
 @media (min-width: 640px) {
 
-    canvas {
+    /* canvas {
         height: 650px;
         width: 650px;
-    }
+    } */
     .gallery {
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -96,10 +96,10 @@
         gap: 1em;
     }
 
-    canvas {
+    /* canvas {
         height: 750px;
         width: 750px;
-    }
+    } */
 
     .gallery {
         display: grid;
@@ -136,10 +136,10 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1em
     }
-    canvas {
+    /* canvas {
         height: 600px;
         width: 600px;
-    }
+    } */
 
     .gallery {
         display: grid;

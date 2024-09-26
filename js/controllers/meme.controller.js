@@ -49,8 +49,10 @@ function drawImgAndText(imgId) {
     elImg.onload = () => {
 
         // Draw img
-        // gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        coverCanvasWithImg(elImg)
+        gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+        
+        // Func for resizing
+        // coverCanvasWithImg(elImg)
 
         // Draw txt lines
         const linesSettings = getMeme().lines
@@ -86,10 +88,10 @@ function drawImgAndText(imgId) {
     }
 }
 
-function coverCanvasWithImg(elImg) {
-    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-}
+// function coverCanvasWithImg(elImg) {
+//     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+//     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+// }
 
 function drawText(lineSettings, x, y) {
     gCtx.lineWidth = 1
