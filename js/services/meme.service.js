@@ -13,7 +13,7 @@ function setImg(imgId) {
             {
                 txt: 'I sometimes eat Falafel',
                 size: 40,
-                color: 'white',
+                color: '#ffffff',
                 isCurrLine: true,
                 // pos,
                 width: textWidthMeasure('I sometimes eat Falafel')
@@ -21,7 +21,7 @@ function setImg(imgId) {
             {
                 txt: 'Second line!!',
                 size: 40,
-                color: 'white',
+                color: '#ffffff',
                 isCurrLine: false,
                 // pos,
                 width: textWidthMeasure('Second line!!')
@@ -49,10 +49,10 @@ function addLine() {
     gMeme.lines.push({
         txt: 'Add Text',
         size: 40,
-        color: 'white',
+        color: '#ffffff',
         isCurrLine: true,
         pos: center,
-        width: textWidthMeasure(txt)
+        width: textWidthMeasure('Add Text')
     })
     restartToolbar()
 }
@@ -94,8 +94,15 @@ function restartToolbar() {
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
 
-    txt.value = ''
-    txtColor.value = '#ffffff'
+    const currLineTxt = gMeme.lines[gCurrLineIdx].txt
+    const currLineColor = gMeme.lines[gCurrLineIdx].color
+
+    txt.value = currLineTxt
+    txtColor.value = currLineColor
+
+    if(currLineTxt === 'I sometimes eat Falafel' || currLineTxt === 'Second line!!' || currLineTxt === 'Add Text'){
+        txt.value = ''
+    }
 }
 
 //* Check if the line was clicked
