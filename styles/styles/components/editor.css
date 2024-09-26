@@ -26,6 +26,7 @@
 }
 
 .tool-bar .text {
+    margin-top: 20px;
     font-size: 2.5625em;
     font-family: poppins;
     border-radius: 2.75em;
@@ -83,6 +84,7 @@
     justify-self: center;
     align-self: center;
 
+    cursor: pointer;
 }
 
 .tool-bar .txt-color::before{
