@@ -90,7 +90,7 @@ function deleteLine(){
 
 function selectLine() {
     gMeme.lines.forEach(line => line.isCurrLine = false)
-
+    // gCurrLineIdx = gMeme.
     gMeme.lines[gCurrLineIdx].isCurrLine = true
     updateToolbar()
 }
@@ -98,10 +98,18 @@ function selectLine() {
 function chooseLine(lineIdx) {
     const currLineIdx = gMeme.lines.findIndex(line => line.isCurrLine)
     gMeme.lines[currLineIdx].isCurrLine = false
-
+    
     const newLine = gMeme.lines[lineIdx].isCurrLine = true
     gCurrLineIdx = lineIdx
 }
+
+function moveLine(dx, dy){
+    gMeme.lines[gCurrLineIdx].pos.x += dx
+    gMeme.lines[gCurrLineIdx].pos.y += dy
+    console.log('moveLine', gMeme.lines[gCurrLineIdx].pos);
+    
+}
+
 
 function getCurrLineIdx() {
     return gCurrLineIdx

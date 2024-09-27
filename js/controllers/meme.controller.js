@@ -58,37 +58,53 @@ function drawImgAndText(imgId) {
         const linesSettings = getMeme().lines
         for (var i = 0; i < linesSettings.length; i++) {
             if (i === 0) {
-                const centerTop = { x: gElCanvas.width / 2, y: 50 }
-                drawText(linesSettings[i], centerTop.x, centerTop.y)
-                linesSettings[i].pos = centerTop
-                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
-                
-                if (linesSettings[i].textAlign === 'left') centerTop.x += (linesSettings[i].width / 2)
-                else if (linesSettings[i].textAlign === 'right') centerTop.x -= (linesSettings[i].width / 2)
+                if (linesSettings[i].textAlign !== 'moved') {
+                    const centerTop = { x: gElCanvas.width / 2, y: 50 }
+                    drawText(linesSettings[i], centerTop.x, centerTop.y)
+                    linesSettings[i].pos = centerTop
+                    linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
 
-                if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerTop.x, centerTop.y)
+                    if (linesSettings[i].textAlign === 'left') centerTop.x += (linesSettings[i].width / 2)
+                    else if (linesSettings[i].textAlign === 'right') centerTop.x -= (linesSettings[i].width / 2)
+
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerTop.x, centerTop.y)
+
+                } else {
+                    drawText(linesSettings[i], linesSettings[i].pos.x, linesSettings[i].pos.y)
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(linesSettings[i].pos.x, linesSettings[i].pos.y)
+                }
             }
             else if (i === 1) {
-                const centerBottom = { x: gElCanvas.width / 2, y: gElCanvas.height - 50 }
-                drawText(linesSettings[i], centerBottom.x, centerBottom.y)
-                linesSettings[i].pos = centerBottom
-                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
-                
-                if (linesSettings[i].textAlign === 'left') centerBottom.x += (linesSettings[i].width / 2)
-                else if (linesSettings[i].textAlign === 'right') centerBottom.x -= (linesSettings[i].width / 2)
+                if (linesSettings[i].textAlign !== 'moved') {
+                    const centerBottom = { x: gElCanvas.width / 2, y: gElCanvas.height - 50 }
+                    drawText(linesSettings[i], centerBottom.x, centerBottom.y)
+                    linesSettings[i].pos = centerBottom
+                    linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
 
-                if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerBottom.x, centerBottom.y)
-            }
-            else {
-                const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-                drawText(linesSettings[i], center.x, center.y)
-                linesSettings[i].pos = center
-                linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
-                
-                if (linesSettings[i].textAlign === 'left') center.x += (linesSettings[i].width / 2)
-                else if (linesSettings[i].textAlign === 'right') center.x -= (linesSettings[i].width / 2)
+                    if (linesSettings[i].textAlign === 'left') centerBottom.x += (linesSettings[i].width / 2)
+                    else if (linesSettings[i].textAlign === 'right') centerBottom.x -= (linesSettings[i].width / 2)
 
-                if (i === getCurrLineIdx() && !gIsDownload) drawRect(center.x, center.y)
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerBottom.x, centerBottom.y)
+                } else {
+                    drawText(linesSettings[i], linesSettings[i].pos.x, linesSettings[i].pos.y)
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(linesSettings[i].pos.x, linesSettings[i].pos.y)
+                }
+            } else {
+                if (linesSettings[i].textAlign !== 'moved') {
+
+                    const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
+                    drawText(linesSettings[i], center.x, center.y)
+                    linesSettings[i].pos = center
+                    linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
+
+                    if (linesSettings[i].textAlign === 'left') center.x += (linesSettings[i].width / 2)
+                    else if (linesSettings[i].textAlign === 'right') center.x -= (linesSettings[i].width / 2)
+
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(center.x, center.y)
+                } else {
+                    drawText(linesSettings[i], linesSettings[i].pos.x, linesSettings[i].pos.y)
+                    if (i === getCurrLineIdx() && !gIsDownload) drawRect(linesSettings[i].pos.x, linesSettings[i].pos.y)
+                }
             }
         }
         // linesSettings.forEach(lineSettings => {
@@ -185,7 +201,7 @@ function onSwitchLine() {
     renderMeme(getMeme().selectedImgId)
 }
 
-function onDeleteLine(){
+function onDeleteLine() {
     //Model
     deleteLine()
     //Dom
@@ -202,34 +218,43 @@ function onAlignText(place) {
 function onDown(ev) {
     //* Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
-    console.log('pos:', pos)
+    // console.log('pos:', pos)
 
     if (!isLineClicked(pos)) return
     selectLine()
+
     renderMeme(getMeme().selectedImgId)
     const clickedLine = gMeme.lines[getCurrLineIdx()]
     gIsLineDrag = true
+
 
     //* Switch to the selected line
 
     //* Save the pos we start from
     gLastPos = pos
+
     const elCanvasCont = document.querySelector('canvas')
     elCanvasCont.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
-    // if (!gIsLineDrag) return
+    if (!gIsLineDrag) return
 
-    // const pos = getEvPos(ev)
+    getMeme().lines[getCurrLineIdx()].textAlign = 'moved'
+
+    const pos = getEvPos(ev)
+    console.log('pos:', pos)
+    console.log('Last pos:', gLastPos)
     // //* Calc the delta, the diff we moved
-    // const dx = pos.x - gLastPos.x
-    // const dy = pos.y - gLastPos.y
-    // moveCircle(dx, dy)
+    const dx = pos.x - gLastPos.x
+    const dy = pos.y - gLastPos.y
+    moveLine(dx, dy)
+
+    
     // //* Save the last pos so we will remember where we`ve been and move accordingly
-    // gLastPos = pos
+    gLastPos = pos
     // //* The canvas (along with the circle) is rendered again after every move
-    // renderCanvas()
+    renderMeme(getMeme().selectedImgId)
     // // renderCircle()
 }
 
