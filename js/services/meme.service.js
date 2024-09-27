@@ -83,6 +83,11 @@ function switchLine() {
     updateToolbar()
 }
 
+function deleteLine(){
+    gMeme.lines.splice(gCurrLineIdx, 1)
+    restartToolbar()
+}
+
 function selectLine() {
     gMeme.lines.forEach(line => line.isCurrLine = false)
 

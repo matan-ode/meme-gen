@@ -185,6 +185,13 @@ function onSwitchLine() {
     renderMeme(getMeme().selectedImgId)
 }
 
+function onDeleteLine(){
+    //Model
+    deleteLine()
+    //Dom
+    renderMeme(getMeme().selectedImgId)
+}
+
 function onAlignText(place) {
     //Model
     alignText(place)
