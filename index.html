@@ -52,8 +52,8 @@
                         oninput="setTextColor(value, this)" class="txt-color">
                     <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
                     <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
-                    <input  class="change-font-size" oninput="setFontSize(value, this)" type="number" value="40" placeholder="Font Size" step="2" min="0" max="100">
-                    <select oninput="setFontFamily(value, this)" class="font-choose" id="fontFamily" name="fontFamily">
+                    <input  class="change-font-size" oninput="setFontSize(value, this)" type="number" name="fontSize" value="40" placeholder="Font Size" step="2" min="0" max="100">
+                    <select oninput="setFontFamily(value, this)" class="font-choose" id="fontFamily" name="fontFamily" value="Impact">
                         <option value="Impact">Impact</option>
                         <option value="Arial">Arial</option>
                         <option value="Verdana">Verdana</option>
@@ -64,6 +64,7 @@
                         <option value="Brush Script Mt">Brush Script Mt</option>
                         <option value="Poppins">Poppins</option>
                     </select>
+                    <button class="align-left" onclick="onAlignText('left')"></button>
 
                 </section>
                 <ul class="share clean-list" onclick="onShareImg()">Share

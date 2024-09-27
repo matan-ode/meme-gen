@@ -98,7 +98,7 @@ function drawText(lineSettings, x, y) {
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = lineSettings.color
     gCtx.font = `bold ${lineSettings.size}px ${lineSettings.fontFamily}`
-    gCtx.textAlign = 'center'
+    gCtx.textAlign = `${lineSettings.textAlign}`
     gCtx.textBaseline = 'middle'
     gCtx.fillText(lineSettings.txt, x, y)
     gCtx.strokeText(lineSettings.txt, x, y)
@@ -173,6 +173,12 @@ function onSwitchLine() {
     renderMeme(getMeme().selectedImgId)
 }
 
+function onAlignText(place){
+    //Model
+    alignText(place)
+    //Dom
+    renderMeme(getMeme().selectedImgId)
+}
 
 function onDown(ev) {
     //* Get the ev pos from mouse or touch

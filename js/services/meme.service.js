@@ -41,11 +41,18 @@ function getMeme() {
 
 function increaseFontSize() {
     gMeme.lines[gCurrLineIdx].size += 5
+    updateToolbar()
 }
 
 function decreaseFontSize() {
     gMeme.lines[gCurrLineIdx].size -= 5
+    updateToolbar()
 }
+
+function alignText(place) {
+    gMeme.lines[gCurrLineIdx].textAlign = place
+}
+
 
 function addLine() {
     const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
@@ -106,10 +113,13 @@ function restartToolbar() {
 function updateToolbar() {
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
+    const fontSize = document.querySelector('input[name="fontSize"]')
 
     const currLineTxt = gMeme.lines[gCurrLineIdx].txt
     const currLineColor = gMeme.lines[gCurrLineIdx].color
+    const currFontSize = gMeme.lines[gCurrLineIdx].size
 
+    fontSize.value = currFontSize
     txt.value = currLineTxt
     txtColor.value = currLineColor
     console.log(currLineTxt);
