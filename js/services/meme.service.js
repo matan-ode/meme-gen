@@ -125,6 +125,9 @@ function restartToolbar() {
     txtColor.value = '#ffffff'
     fontSize.value = 40
     fontFamily.value = 'Impact'
+
+    const elDownload = document.querySelector('.download')
+    elDownload.classList.add('hidden')
 }
 
 function updateToolbar() {
