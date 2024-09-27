@@ -43,16 +43,16 @@
                     oninput="setLineText(value, this)">
 
                 <section class="lines-edit">
-                    <button class="add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                    <button class="switch-line" onclick="onSwitchLine()"><i class="fa-solid fa-repeat"></i></button>
-                    <button class="delete-line" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
+                    <button class="line-editor-btn add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                    <button class="line-editor-btn switch-line" onclick="onSwitchLine()"><i class="fa-solid fa-repeat"></i></button>
+                    <button class="line-editor-btn delete-line" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
                 </section>
 
                 <section class="text-edit">
                     <input type="color" value="#ffffff" name="txtColor" id="txtColor"
                         oninput="setTextColor(value, this)" class="txt-color">
-                    <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
-                    <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
+                    <button class="line-editor-btn increase-font-size" onclick="onIncreaseFontSize()">A+</button>
+                    <button class="line-editor-btn decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
                     <input  class="change-font-size" oninput="setFontSize(value, this)" type="number" name="fontSize" value="40" placeholder="Font Size" step="2" min="0" max="100">
                     <select class="font-choose" oninput="setFontFamily(value, this)" id="fontFamily" name="fontFamily" value="Impact">
                         <option value="Impact">Impact</option>
@@ -65,9 +65,9 @@
                         <option value="Brush Script Mt">Brush Script Mt</option>
                         <option value="Poppins">Poppins</option>
                     </select>
-                    <button class="align-left" onclick="onAlignText('right')"><i class="fa-solid fa-align-left"></i></button>
-                    <button class="align-left" onclick="onAlignText('center')"><i class="fa-solid fa-align-center"></i></button>
-                    <button class="align-left" onclick="onAlignText('left')"><i class="fa-solid fa-align-right"></i></button>
+                    <button class="line-editor-btn align-left" onclick="onAlignText('right')"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="line-editor-btn align-left" onclick="onAlignText('center')"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="line-editor-btn align-left" onclick="onAlignText('left')"><i class="fa-solid fa-align-right"></i></button>
 
                 </section>
                 <ul class="share clean-list" onclick="onShareImg()">Share

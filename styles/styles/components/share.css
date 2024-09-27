@@ -25,6 +25,10 @@
     
 }
 
+.share:hover{
+    opacity: 80%;
+}
+
 .download {
     display: grid;
     place-items: center;
@@ -47,4 +51,8 @@
     color: var(--clr-txt-primary);
 
     z-index: 2;
+}
+
+.download:hover{
+    opacity: 80%;
 }

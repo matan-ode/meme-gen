@@ -132,3 +132,22 @@
 
     border-radius: 10px;
 }
+
+.delete-line{
+    color: white;
+    background-color: rgb(218, 52, 52);
+}
+
+.switch-line {
+    color: white;
+    background-color: rgb(65, 65, 207);
+}
+
+.add-line{
+    color: white;
+    background-color: rgb(54, 179, 54);
+}
+
+.line-editor-btn:hover{
+    opacity: 70%;
+}
