@@ -45,12 +45,12 @@ function drawImgAndText(imgId) {
 
     const elImg = new Image()
     elImg.src = getImgById(imgId).url
-    
+
     elImg.onload = () => {
 
         // Draw img
         gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        
+
         // Func for resizing
         // coverCanvasWithImg(elImg)
 
@@ -62,6 +62,10 @@ function drawImgAndText(imgId) {
                 drawText(linesSettings[i], centerTop.x, centerTop.y)
                 linesSettings[i].pos = centerTop
                 linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
+                
+                if (linesSettings[i].textAlign === 'left') centerTop.x += (linesSettings[i].width / 2)
+                else if (linesSettings[i].textAlign === 'right') centerTop.x -= (linesSettings[i].width / 2)
+
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerTop.x, centerTop.y)
             }
             else if (i === 1) {
@@ -69,6 +73,10 @@ function drawImgAndText(imgId) {
                 drawText(linesSettings[i], centerBottom.x, centerBottom.y)
                 linesSettings[i].pos = centerBottom
                 linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
+                
+                if (linesSettings[i].textAlign === 'left') centerBottom.x += (linesSettings[i].width / 2)
+                else if (linesSettings[i].textAlign === 'right') centerBottom.x -= (linesSettings[i].width / 2)
+
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(centerBottom.x, centerBottom.y)
             }
             else {
@@ -76,6 +84,10 @@ function drawImgAndText(imgId) {
                 drawText(linesSettings[i], center.x, center.y)
                 linesSettings[i].pos = center
                 linesSettings[i].width = textWidthMeasure(linesSettings[i].txt)
+                
+                if (linesSettings[i].textAlign === 'left') center.x += (linesSettings[i].width / 2)
+                else if (linesSettings[i].textAlign === 'right') center.x -= (linesSettings[i].width / 2)
+
                 if (i === getCurrLineIdx() && !gIsDownload) drawRect(center.x, center.y)
             }
         }
@@ -125,7 +137,7 @@ function setTextColor(color, elInput) {
     renderMeme(getMeme().selectedImgId)
 }
 
-function setFontFamily(fontFamily, elInput){
+function setFontFamily(fontFamily, elInput) {
     const firstLineSettings = getMeme().lines[getCurrLineIdx()]
     firstLineSettings.fontFamily = fontFamily
     renderMeme(getMeme().selectedImgId)
@@ -137,7 +149,7 @@ function setLineText(text, elInput) {
     renderMeme(getMeme().selectedImgId)
 }
 
-function setFontSize(fontSize, elInput){
+function setFontSize(fontSize, elInput) {
     const firstLineSettings = getMeme().lines[getCurrLineIdx()]
     firstLineSettings.size = fontSize
     renderMeme(getMeme().selectedImgId)
@@ -173,7 +185,7 @@ function onSwitchLine() {
     renderMeme(getMeme().selectedImgId)
 }
 
-function onAlignText(place){
+function onAlignText(place) {
     //Model
     alignText(place)
     //Dom

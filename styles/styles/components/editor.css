@@ -78,8 +78,10 @@
 .tool-bar .txt-color {
     position: relative;
     margin-bottom: 0;
+    grid-column: 1/ span 2;
 
-    width: 80px;
+
+    width: 170px;
     height: 80px;
 
     border-radius: 10px;
@@ -93,13 +95,14 @@
 .tool-bar .txt-color::before {
     content: 'Paint';
     position: absolute;
+    
     letter-spacing: 1.5px;
     font-size: 18px;
     font-weight: bold;
     font-family: poppins, serif;
 
     top: 28px;
-    left: 13px;
+    left: 60px;
 }
 
 .tool-bar .change-font-size {

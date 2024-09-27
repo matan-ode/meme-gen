@@ -105,23 +105,31 @@ function getCurrLineIdx() {
 function restartToolbar() {
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
+    const fontSize = document.querySelector('input[name="fontSize"]')
+    const fontFamily = document.querySelector('select[name="fontFamily"]')
 
     txt.value = ''
     txtColor.value = '#ffffff'
+    fontSize.value = 40
+    fontFamily.value = 'Impact'
 }
 
 function updateToolbar() {
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
     const fontSize = document.querySelector('input[name="fontSize"]')
+    const fontFamily = document.querySelector('select[name="fontFamily"]')
+
 
     const currLineTxt = gMeme.lines[gCurrLineIdx].txt
     const currLineColor = gMeme.lines[gCurrLineIdx].color
     const currFontSize = gMeme.lines[gCurrLineIdx].size
+    const currFontFamily = gMeme.lines[gCurrLineIdx].fontFamily
 
-    fontSize.value = currFontSize
     txt.value = currLineTxt
     txtColor.value = currLineColor
+    fontSize.value = currFontSize
+    fontFamily.value = currFontFamily
     console.log(currLineTxt);
 
     if (currLineTxt === 'I sometimes eat Falafel' || currLineTxt === 'Second line!!' || currLineTxt === 'Add Text') {
