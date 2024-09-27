@@ -137,6 +137,12 @@ function setLineText(text, elInput) {
     renderMeme(getMeme().selectedImgId)
 }
 
+function setFontSize(fontSize, elInput){
+    const firstLineSettings = getMeme().lines[getCurrLineIdx()]
+    firstLineSettings.size = fontSize
+    renderMeme(getMeme().selectedImgId)
+}
+
 function onIncreaseFontSize() {
     //Model
     increaseFontSize()
@@ -151,12 +157,11 @@ function onDecreaseFontSize() {
     renderMeme(getMeme().selectedImgId)
 }
 
-
 function onAddLine() {
     //Model
     addLine()
     chooseLine(getMeme().lines.length - 1)
-    restartToolbar()
+    updateToolbar()
     //Dom
     renderMeme(getMeme().selectedImgId)
 }

@@ -20,6 +20,7 @@ function onGallery(){
 
     const elBackdrop = document.querySelector('.backdrop')
     onBackdrop(elBackdrop)
+    restartToolbar()
 }
 
 function onBurger(){

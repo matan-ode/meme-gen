@@ -71,14 +71,14 @@ function switchLine() {
         gMeme.lines[currLineIdx + 1].isCurrLine = true
         gCurrLineIdx = currLineIdx + 1
     }
-    restartToolbar()
+    updateToolbar()
 }
 
 function selectLine() {
     gMeme.lines.forEach(line => line.isCurrLine = false)
 
     gMeme.lines[gCurrLineIdx].isCurrLine = true
-    restartToolbar()
+    updateToolbar()
 }
 
 function chooseLine(lineIdx) {
@@ -94,6 +94,14 @@ function getCurrLineIdx() {
 }
 
 function restartToolbar() {
+    const txt = document.querySelector('input[name="text"]')
+    const txtColor = document.querySelector('input[name="txtColor"]')    
+
+    txt.value = ''
+    txtColor.value = '#ffffff'
+}
+
+function updateToolbar(){
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
 
