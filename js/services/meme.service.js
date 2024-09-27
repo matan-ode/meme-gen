@@ -54,7 +54,6 @@ function addLine() {
         pos: center,
         width: textWidthMeasure('Add Text')
     })
-    restartToolbar()
 }
 
 function switchLine() {
@@ -71,7 +70,7 @@ function switchLine() {
     restartToolbar()
 }
 
-function selectLine(){
+function selectLine() {
     gMeme.lines.forEach(line => line.isCurrLine = false)
 
     gMeme.lines[gCurrLineIdx].isCurrLine = true
@@ -99,8 +98,9 @@ function restartToolbar() {
 
     txt.value = currLineTxt
     txtColor.value = currLineColor
+    console.log(currLineTxt);
 
-    if(currLineTxt === 'I sometimes eat Falafel' || currLineTxt === 'Second line!!' || currLineTxt === 'Add Text'){
+    if (currLineTxt === 'I sometimes eat Falafel' || currLineTxt === 'Second line!!' || currLineTxt === 'Add Text') {
         txt.value = ''
     }
 }

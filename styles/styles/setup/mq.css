@@ -58,6 +58,11 @@
         height: 650px;
         width: 650px;
     } */
+
+    .logo{
+        margin-left: 10px; 
+     }
+
     .gallery {
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -71,8 +76,6 @@
     .burger-menu {
         display: none;
     }
-
-
 }
 
 /* Medium */
@@ -82,6 +85,7 @@
     }
 
     .logo {
+        margin-inline-start: 2em;
         font-size: 2em;
     }
     .main-nav-list li a {

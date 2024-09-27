@@ -35,4 +35,10 @@ function onBackdrop(elBackdrop){
     
     const elNav = document.querySelector('.main-nav')
     elNav.style.right = '-100%'
+
+    const elDownload = document.querySelector('.download')
+    elDownload.classList.toggle('hidden')
+
+    gIsDownload = false
+    renderMeme(getMeme().selectedImgId)
 }

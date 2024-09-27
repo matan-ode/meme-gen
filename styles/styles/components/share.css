@@ -45,4 +45,6 @@
     box-shadow: inset 0px 5px 0px #ffffff;
     background-color: #8f44bb;
     color: var(--clr-txt-primary);
+
+    z-index: 2;
 }

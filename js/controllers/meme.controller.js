@@ -150,6 +150,7 @@ function onAddLine() {
     //Model
     addLine()
     chooseLine(getMeme().lines.length - 1)
+    restartToolbar()
     //Dom
     renderMeme(getMeme().selectedImgId)
 }
