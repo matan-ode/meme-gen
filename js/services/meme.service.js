@@ -16,7 +16,9 @@ function setImg(imgId) {
                 color: '#ffffff',
                 isCurrLine: true,
                 // pos,
-                width: textWidthMeasure('I sometimes eat Falafel')
+                width: textWidthMeasure('I sometimes eat Falafel'),
+                fontFamily: 'Impact',
+                textAlign: 'center'
             },
             {
                 txt: 'Second line!!',
@@ -24,7 +26,9 @@ function setImg(imgId) {
                 color: '#ffffff',
                 isCurrLine: false,
                 // pos,
-                width: textWidthMeasure('Second line!!')
+                width: textWidthMeasure('Second line!!'),
+                fontFamily: 'Impact',
+                textAlign: 'center'
             }
         ]
     }

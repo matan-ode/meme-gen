@@ -52,6 +52,19 @@
                         oninput="setTextColor(value, this)" class="txt-color">
                     <button class="increase-font-size" onclick="onIncreaseFontSize()">A+</button>
                     <button class="decrease-font-size" onclick="onDecreaseFontSize()">A-</button>
+                    <select oninput="setFontFamily(value, this)" class="font-choose" id="fontFamily" name="fontFamily">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Garamond">Garamond</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Brush Script Mt">Brush Script Mt</option>
+                        <option value="Poppins">Poppins</option>
+                    </select>
+
+
                 </section>
                 <ul class="share clean-list" onclick="onShareImg()">Share
                     <li><a class="download hidden" href="#" onclick="onDownloadImg(this, event)"

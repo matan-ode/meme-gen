@@ -97,12 +97,11 @@ function drawText(lineSettings, x, y) {
     gCtx.lineWidth = 1
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = lineSettings.color
-    gCtx.font = `bold ${lineSettings.size}px Arial`
+    gCtx.font = `bold ${lineSettings.size}px ${lineSettings.fontFamily}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
     gCtx.fillText(lineSettings.txt, x, y)
     gCtx.strokeText(lineSettings.txt, x, y)
-
 
     gTextSize.width = textWidthMeasure(lineSettings.txt)
     gTextSize.height = lineSettings.size
@@ -126,6 +125,12 @@ function setTextColor(color, elInput) {
     renderMeme(getMeme().selectedImgId)
 }
 
+function setFontFamily(fontFamily, elInput){
+    const firstLineSettings = getMeme().lines[getCurrLineIdx()]
+    firstLineSettings.fontFamily = fontFamily
+    renderMeme(getMeme().selectedImgId)
+}
+
 function setLineText(text, elInput) {
     const firstLineSettings = getMeme().lines[getCurrLineIdx()]
     firstLineSettings.txt = text
@@ -145,6 +150,7 @@ function onDecreaseFontSize() {
     //Dom
     renderMeme(getMeme().selectedImgId)
 }
+
 
 function onAddLine() {
     //Model
