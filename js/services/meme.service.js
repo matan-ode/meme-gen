@@ -56,7 +56,9 @@ function addLine() {
         color: '#ffffff',
         isCurrLine: true,
         pos: center,
-        width: textWidthMeasure('Add Text')
+        width: textWidthMeasure('Add Text'),
+        fontFamily: 'Impact',
+        textAlign: 'center'
     })
 }
 
@@ -95,13 +97,13 @@ function getCurrLineIdx() {
 
 function restartToolbar() {
     const txt = document.querySelector('input[name="text"]')
-    const txtColor = document.querySelector('input[name="txtColor"]')    
+    const txtColor = document.querySelector('input[name="txtColor"]')
 
     txt.value = ''
     txtColor.value = '#ffffff'
 }
 
-function updateToolbar(){
+function updateToolbar() {
     const txt = document.querySelector('input[name="text"]')
     const txtColor = document.querySelector('input[name="txtColor"]')
 
