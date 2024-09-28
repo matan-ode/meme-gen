@@ -1,11 +1,13 @@
 'use strict'
 
 var gImgs
-var gKeywordSearchCountMap
+var gKeywordSearchCountMap = {}
+var gKeywordsNames = []
+var gIsFirstRender = true
 
 
 
-function getImgById(imgId){
+function getImgById(imgId) {
     return gImgs.find(img => img.id === imgId)
 }
 
@@ -40,6 +42,55 @@ function createImg(id, keywords) {
     }
 }
 
-function getImgs(){
+function getImgs() {
     return gImgs
+}
+
+function keywordsPopularity() {
+    // Count Popularity of Keywords
+    // gKeywordsNames = []
+    gImgs.forEach(img => {
+        img.keywords.forEach(keyword => {
+            if (!gKeywordSearchCountMap[keyword]) gKeywordSearchCountMap[keyword] = 0
+            gKeywordSearchCountMap[keyword]++
+            if (!gKeywordsNames.includes(`${keyword}`)) gKeywordsNames.push(keyword)
+        })
+    })
+}
+
+function renderKeywords() {
+    console.log(gKeywordsNames);
+
+    const searchNames = document.querySelector('.search-names')
+    var strHtml = ''
+    gKeywordsNames.forEach(keywordName => {
+        strHtml += `<span onclick="onWordClick('${keywordName}', this)" class="keyword-${keywordName}">${keywordName} </span>`
+    })
+    searchNames.innerHTML = strHtml
+
+    for (var i = 0; i < gKeywordsNames.length; i++) {
+        if (gIsFirstRender) gKeywordSearchCountMap[gKeywordsNames[i]] += 8
+        const fontSize = (gKeywordSearchCountMap[gKeywordsNames[i]])
+        const elWord = document.querySelector(`.keyword-${gKeywordsNames[i]}`)
+        elWord.style.fontSize = `${fontSize}px`
+    }
+    gIsFirstRender = false
+
+    console.log('hiiiii', gKeywordSearchCountMap);
+    console.log('hiiiii', strHtml);
+}
+
+// function keywordsCounter() {
+
+// }
+
+function onWordClick(word, elWord) {
+    // const strSize = elWord.style.fontSize
+    // let currSize = parseInt(strSize)
+    // currSize *= 1.2
+    // elWord.style.fontSize = currSize + 'px'
+    gKeywordSearchCountMap[word] *=1.1
+    console.log(gKeywordSearchCountMap[word]);
+
+    onNamesInput(word)
 }

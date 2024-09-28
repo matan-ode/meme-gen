@@ -55,6 +55,14 @@
         display: block;
     }
 
+    .search-names {
+        display: none;
+    }
+
+    .names-filter{
+        width: 500px;
+    }
+
 }
 
 /* Small */

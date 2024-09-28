@@ -4,6 +4,10 @@ var gFilteredImgs = []
 
 
 function renderGallery() {
+    // gKeywordsNames = []
+    // gKeywordSearchCountMap = {}
+
+    renderKeywords()
     const elGallery = document.querySelector('.gallery')
 
     if (gFilteredImgs && gFilteredImgs.length !== 0) {
@@ -45,6 +49,10 @@ function onGallery() {
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.remove('hidden')
     restartSearchInput()
+
+    const elNamesFilter = document.querySelector('.search-names')
+    elNamesFilter.classList.remove('hidden')
+    
 
     restartToolbar()
 }
@@ -93,6 +101,9 @@ function onRandomize() {
     elSearch.classList.add('hidden')
     restartSearchInput()
 
+    const elNamesFilter = document.querySelector('.search-names')
+    elNamesFilter.classList.add('hidden')
+
     const RandomImgIdx = getRandomInt(1, getImgs().length)
     const randomId = getImgs()[RandomImgIdx].id
     onImgSelect(randomId)
@@ -107,6 +118,7 @@ function onNamesInput(value, elInput) {
     })
     console.log(gImgs)
     console.log(gFilteredImgs)
+    // if(elInput) elInput.value = value
 
     renderGallery()
     gFilteredImgs = []
@@ -115,9 +127,6 @@ function onNamesInput(value, elInput) {
 function restartSearchInput(){
     const elFilter = document.querySelector('.names-filter')
     elFilter.value = ''
+    
     renderGallery()
-}
-
-function renderSearchBar() {
-
 }

@@ -11,16 +11,26 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
 function onInit() {
+    gIsFirstRender = true
     gFilteredImgs = []
     gCurrLineIdx = 0
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
+    
     addListeners()
     // resizeCanvas()
     createImgs()
-    renderSavedMemes()
+    keywordsPopularity()
+    renderKeywords()
+
+
+    console.log(gKeywordSearchCountMap)
+    console.log(gKeywordsNames)
+
+
     renderGallery()
+
+    renderSavedMemes()
     setImg(1)
     renderMeme(getMeme().selectedImgId)
 }
@@ -37,6 +47,9 @@ function onImgSelect(imgId) {
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
     restartSearchInput()
+
+    const elNamesFilter = document.querySelector('.search-names')
+    elNamesFilter.classList.add('hidden')
 
     const elLink = document.querySelector('.main-nav li')
     elLink.classList.remove('clicked')

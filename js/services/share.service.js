@@ -96,6 +96,9 @@ function onSaved() {
     const elSavedBtn = document.querySelector('.saved-btn')
     elSavedBtn.classList.add('clicked')
 
+    const elNamesFilter = document.querySelector('.search-names')
+    elNamesFilter.classList.add('hidden')
+
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
     restartSearchInput()

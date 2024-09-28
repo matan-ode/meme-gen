@@ -1,8 +1,32 @@
-.names-filter{
+.names-filter {
     font-family: poppins, serif;
     font-size: 1.5em;
-    
+
     border-radius: 15px;
     height: 40px;
     width: 200px;
+}
+
+.search-bar {
+    display: flex;
+
+}
+
+.search-names {
+    cursor: pointer;
+    vertical-align: top;
+    margin-inline-start: 30px;
+    height: 100%;
+    overflow:hidden ;
+}
+
+.search-names span {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+    height: 100%;
+    overflow:hidden ;
 }
