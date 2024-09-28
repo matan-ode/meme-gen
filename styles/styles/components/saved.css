@@ -1,0 +1,25 @@
+.saved {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+    text-align: center;
+}
+
+.saved.none {
+    display: none;
+}
+
+.meme-img{
+    margin-bottom: 10px;
+
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    outline: 0px #1DA996 solid;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.meme-img:hover {
+    outline: 7px rgba(36, 198, 177, 50%) solid;
+}

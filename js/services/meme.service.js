@@ -1,7 +1,7 @@
 'use strict'
 
-// var gMemes
 var gMeme
+var gSavedMemes = []
 var gCurrLineIdx = 0
 
 
@@ -128,6 +128,8 @@ function restartToolbar() {
 
     const elDownload = document.querySelector('.download')
     elDownload.classList.add('hidden')
+    const elSave = document.querySelector('.save')
+    elSave.classList.add('hidden')
 }
 
 function updateToolbar() {
@@ -166,4 +168,10 @@ function isLineClicked(clickedPos) {
         }
     }
     return false
+}
+
+function selectSavedMeme(savedMemeIdx){
+    console.log(gSavedMemes[savedMemeIdx].url);
+    
+    renderMeme(savedMemeIdx, true)
 }

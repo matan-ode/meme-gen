@@ -18,6 +18,7 @@ function onInit() {
     addListeners()
     // resizeCanvas()
     createImgs()
+    renderSavedMemes()
     renderGallery()
     setImg(1)
     renderMeme(getMeme().selectedImgId)
@@ -37,15 +38,18 @@ function onImgSelect(imgId) {
 
 }
 
-function renderMeme(imgId) {
-    drawImgAndText(imgId)
+function renderMeme(imgId, isSavedMeme) {
+    if (!isSavedMeme) drawImgAndText(imgId)
+    else drawImgAndText(imgId, isSavedMeme)
 }
 
-function drawImgAndText(imgId) {
-
+function drawImgAndText(imgId, isSavedMeme) {
     const elImg = new Image()
-    elImg.src = getImgById(imgId).url
-
+    if (!isSavedMeme) {
+        elImg.src = getImgById(imgId).url
+    }else{
+        elImg.src = getImgById(gSavedMemes[imgId].selectedImgId).url
+    }
     elImg.onload = () => {
 
         // Draw img
@@ -250,7 +254,7 @@ function onMove(ev) {
     const dy = pos.y - gLastPos.y
     moveLine(dx, dy)
 
-    
+
     // //* Save the last pos so we will remember where we`ve been and move accordingly
     gLastPos = pos
     // //* The canvas (along with the circle) is rendered again after every move
@@ -301,6 +305,42 @@ function getEvPos(ev) {
     }
     return pos
 }
+
+
+
+function getBase64Image() {
+
+    var dataURL = gElCanvas.toDataURL("image/png");
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+function onMemeImg(savedMemeIdx) {
+    //Model:
+    gMeme = gSavedMemes[savedMemeIdx]
+    selectSavedMeme(savedMemeIdx)
+
+    //Dom:
+    restartToolbar()
+    gCurrLineIdx = 0
+    const elEditor = document.querySelector('.editor')
+    elEditor.classList.remove('none')
+    const elGallery = document.querySelector('.gallery')
+    elGallery.classList.add('none')
+    const elSaved = document.querySelector('.saved')
+    elSaved.classList.add('none')
+
+    const elLink = document.querySelector('.main-nav li')
+    elLink.classList.remove('clicked')
+    const elSavedBtn = document.querySelector('.saved-btn')
+    elSavedBtn.classList.remove('clicked')
+
+
+    console.log(gSavedMemes[savedMemeIdx]);
+    
+}
+
+
+
 
 // function renderCanvas() {
 //     gCtx.fillStyle = '#ffffff'
