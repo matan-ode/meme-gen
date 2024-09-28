@@ -37,6 +37,7 @@ function onSaveMeme() {
     //Model
     const imgData = getBase64Image()
     saveToStorage(`imgData${gSavedMemes.length}`, imgData)
+    gIsDownload = false
 
     // getMeme().url = `data:image/png;base64,${imgData}`
     gSavedMemes.push(getMeme())

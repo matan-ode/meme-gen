@@ -125,8 +125,8 @@ function onNamesInput(value, elInput) {
             gFilteredImgs.push(img)
         }
     })
-    console.log(gImgs)
-    console.log(gFilteredImgs)
+    // console.log(gImgs)
+    // console.log(gFilteredImgs)
     // if(elInput) elInput.value = value
 
     renderGallery()

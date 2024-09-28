@@ -36,6 +36,7 @@ function onInit() {
 }
 
 function onImgSelect(imgId) {
+    gIsDownload = false
     restartToolbar()
     gCurrLineIdx = 0
     setImg(imgId)
@@ -336,6 +337,7 @@ function getBase64Image() {
 
 function onMemeImg(savedMemeIdx) {
     //Model:
+    gIsDownload = false
     gMeme = gSavedMemes[savedMemeIdx]
     selectSavedMeme(savedMemeIdx)
 
