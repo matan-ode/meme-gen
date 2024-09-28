@@ -11,6 +11,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
 function onInit() {
+    gFilteredImgs = []
     gCurrLineIdx = 0
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -32,6 +33,9 @@ function onImgSelect(imgId) {
     elEditor.classList.remove('none')
     const elGallery = document.querySelector('.gallery')
     elGallery.classList.add('none')
+    
+    const elSearch = document.querySelector('.names-filter')
+    elSearch.classList.add('hidden')
 
     const elLink = document.querySelector('.main-nav li')
     elLink.classList.remove('clicked')

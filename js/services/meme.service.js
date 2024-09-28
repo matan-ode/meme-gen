@@ -171,7 +171,7 @@ function isLineClicked(clickedPos) {
 }
 
 function selectSavedMeme(savedMemeIdx){
-    console.log(gSavedMemes[savedMemeIdx].url);
+    // console.log(gSavedMemes[savedMemeIdx].url);
     
     renderMeme(savedMemeIdx, true)
 }
