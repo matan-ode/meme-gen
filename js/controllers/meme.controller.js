@@ -16,7 +16,7 @@ function onInit() {
     gCurrLineIdx = 0
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    
+
     addListeners()
     // resizeCanvas()
     createImgs()
@@ -57,6 +57,9 @@ function onImgSelect(imgId) {
     const elLink = document.querySelector('.main-nav li')
     elLink.classList.remove('clicked')
 
+    const elSearchBar = document.querySelector('.search-bar')
+    elSearchBar.style.display = 'none'
+
 }
 
 function renderMeme(imgId, isSavedMeme) {
@@ -68,7 +71,7 @@ function drawImgAndText(imgId, isSavedMeme) {
     const elImg = new Image()
     if (!isSavedMeme) {
         elImg.src = getImgById(imgId).url
-    }else{
+    } else {
         elImg.src = getImgById(gSavedMemes[imgId].selectedImgId).url
     }
     elImg.onload = () => {
@@ -358,7 +361,7 @@ function onMemeImg(savedMemeIdx) {
 
 
     console.log(gSavedMemes[savedMemeIdx]);
-    
+
 }
 
 

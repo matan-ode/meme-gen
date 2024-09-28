@@ -1,5 +1,72 @@
 /* Mobile Only */
 @media (max-width: 640px) {
+    canvas {
+        height: 500px;
+        width: 500;
+    }
+    main{
+        display: grid;
+        justify-items: center;
+    }
+
+    .editor {
+        width: 300px;
+    }
+
+    .tool-bar {
+        gap: 0px;
+    }
+
+    .editor .text {
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .editor button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+
+    }
+
+    .tool-bar .text-edit {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+
+    }
+/* 
+    .search-bar{
+        display: none;
+    } */
+
+    .tool-bar .txt-color {
+        grid-column: 1;
+        width: 50px;
+        height: 50px;
+    }
+
+    .tool-bar .change-font-size {
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .tool-bar .font-choose {
+        grid-column: 1;
+        width: 50px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    .share{
+        height: 40px;
+        font-size: 25px;
+    }
+
+
     .gallery {
         display: grid;
         grid-template-columns: 1fr;
@@ -75,7 +142,7 @@
         width: 650px;
     } */
 
-    
+
     .logo {
         margin-left: 10px;
     }

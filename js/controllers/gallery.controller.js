@@ -56,6 +56,8 @@ function onGallery() {
     const elNamesFilter = document.querySelector('.search-names')
     elNamesFilter.classList.remove('hidden')
 
+    const elSearchBar = document.querySelector('.search-bar')
+    elSearchBar.style.display = 'flex'
 
     restartToolbar()
 }
