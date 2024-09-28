@@ -39,3 +39,7 @@ function createImg(id, keywords) {
         keywords
     }
 }
+
+function getImgs(){
+    return gImgs
+}

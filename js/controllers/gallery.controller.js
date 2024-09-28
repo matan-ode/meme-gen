@@ -9,7 +9,7 @@ function renderGallery() {
     elGallery.innerHTML = strHtml
 }
 
-function onGallery(){
+function onGallery() {
     const elEditor = document.querySelector('.editor')
     elEditor.classList.add('none')
     const elGallery = document.querySelector('.gallery')
@@ -23,7 +23,7 @@ function onGallery(){
     restartToolbar()
 }
 
-function onBurger(){
+function onBurger() {
     const elNav = document.querySelector('.main-nav')
     elNav.style.right = '0'
 
@@ -31,9 +31,9 @@ function onBurger(){
     elBackdrop.classList.add('show')
 }
 
-function onBackdrop(elBackdrop){
+function onBackdrop(elBackdrop) {
     elBackdrop.classList.remove('show')
-    
+
     const elNav = document.querySelector('.main-nav')
     elNav.style.right = '-100%'
 
@@ -42,4 +42,10 @@ function onBackdrop(elBackdrop){
 
     gIsDownload = false
     renderMeme(getMeme().selectedImgId)
+}
+
+function onRandomize() {
+    const RandomImgIdx = getRandomInt(1, getImgs().length + 1)
+    const randomId = getImgs()[RandomImgIdx].id
+    onImgSelect(randomId)
 }
