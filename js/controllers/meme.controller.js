@@ -46,6 +46,8 @@ function onImgSelect(imgId) {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
+    const elX = document.querySelector('.x-btn')
+    elX.classList.add('hidden')
     restartSearchInput()
 
     const elNamesFilter = document.querySelector('.search-names')

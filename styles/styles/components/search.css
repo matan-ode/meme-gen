@@ -9,15 +9,19 @@
 
 .search-bar {
     display: flex;
+    align-items: center;
 
 }
 
 .search-names {
+
+    height: 100%;
+
     cursor: pointer;
+
     vertical-align: top;
     margin-inline-start: 30px;
-    height: 100%;
-    overflow:hidden ;
+    overflow: hidden;
 }
 
 .search-names span {
@@ -28,5 +32,21 @@
     user-select: none;
     /* Standard syntax */
     height: 100%;
-    overflow:hidden ;
+    overflow: hidden;
+}
+
+.x-btn {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: 200ms;
+}
+
+.keyword{
+    transition: 200ms;
+}
+
+.keyword:hover,
+.x-btn:hover {
+    opacity: 50%;
 }

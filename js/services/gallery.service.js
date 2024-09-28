@@ -64,7 +64,7 @@ function renderKeywords() {
     const searchNames = document.querySelector('.search-names')
     var strHtml = ''
     gKeywordsNames.forEach(keywordName => {
-        strHtml += `<span onclick="onWordClick('${keywordName}', this)" class="keyword-${keywordName}">${keywordName} </span>`
+        strHtml += `<span onclick="onWordClick('${keywordName}', this)" class="keyword keyword-${keywordName}">${keywordName} </span>`
     })
     searchNames.innerHTML = strHtml
 

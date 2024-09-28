@@ -48,11 +48,14 @@ function onGallery() {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.remove('hidden')
+
+    const elX = document.querySelector('.x-btn')
+    elX.classList.remove('hidden')
     restartSearchInput()
 
     const elNamesFilter = document.querySelector('.search-names')
     elNamesFilter.classList.remove('hidden')
-    
+
 
     restartToolbar()
 }
@@ -60,6 +63,8 @@ function onGallery() {
 function onBurger() {
     const elNav = document.querySelector('.main-nav')
     elNav.style.right = '0'
+    elNav.style.opacity = 1
+    elNav.style.pointerEvents = 'all'
 
     const elBackdrop = document.querySelector('.backdrop')
     elBackdrop.classList.add('show')
@@ -70,6 +75,8 @@ function onBackdrop(elBackdrop) {
 
     const elNav = document.querySelector('.main-nav')
     elNav.style.right = '-100%'
+    // elNav.style.opacity = 0
+    // elNav.style.pointerEvents = 'none'
 
     const elDownload = document.querySelector('.download')
     elDownload.classList.toggle('hidden')
@@ -99,6 +106,8 @@ function onRandomize() {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
+    const elX = document.querySelector('.x-btn')
+    elX.classList.add('hidden')
     restartSearchInput()
 
     const elNamesFilter = document.querySelector('.search-names')
@@ -124,9 +133,13 @@ function onNamesInput(value, elInput) {
     gFilteredImgs = []
 }
 
-function restartSearchInput(){
+function restartSearchInput() {
     const elFilter = document.querySelector('.names-filter')
     elFilter.value = ''
-    
+
     renderGallery()
+}
+
+function onXclick(){
+    restartSearchInput()
 }
