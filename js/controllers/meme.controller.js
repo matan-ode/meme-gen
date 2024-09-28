@@ -33,9 +33,10 @@ function onImgSelect(imgId) {
     elEditor.classList.remove('none')
     const elGallery = document.querySelector('.gallery')
     elGallery.classList.add('none')
-    
+
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
+    restartSearchInput()
 
     const elLink = document.querySelector('.main-nav li')
     elLink.classList.remove('clicked')

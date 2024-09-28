@@ -44,6 +44,7 @@ function onGallery() {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.remove('hidden')
+    restartSearchInput()
 
     restartToolbar()
 }
@@ -90,6 +91,7 @@ function onRandomize() {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
+    restartSearchInput()
 
     const RandomImgIdx = getRandomInt(1, getImgs().length)
     const randomId = getImgs()[RandomImgIdx].id
@@ -108,4 +110,14 @@ function onNamesInput(value, elInput) {
 
     renderGallery()
     gFilteredImgs = []
+}
+
+function restartSearchInput(){
+    const elFilter = document.querySelector('.names-filter')
+    elFilter.value = ''
+    renderGallery()
+}
+
+function renderSearchBar() {
+
 }

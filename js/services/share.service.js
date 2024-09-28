@@ -98,4 +98,5 @@ function onSaved() {
 
     const elSearch = document.querySelector('.names-filter')
     elSearch.classList.add('hidden')
+    restartSearchInput()
 }
