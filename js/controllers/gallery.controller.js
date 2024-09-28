@@ -99,7 +99,7 @@ function onRandomize() {
 function onNamesInput(value, elInput) {
     // const filteredImgs = gImgs.filter(img => img.keywords.includes(value))
     getImgs().forEach(img => {
-        if (img.keywords.find(keyword => keyword.includes(value))) {
+        if (img.keywords.find(keyword => keyword.includes(value.toLowerCase()))) {
             gFilteredImgs.push(img)
         }
     })
