@@ -67,7 +67,7 @@ function onBurger() {
     elNav.style.pointerEvents = 'all'
 
     const elBackdrop = document.querySelector('.backdrop')
-    elBackdrop.classList.add('show')
+    elBackdrop.classList.toggle('show')
 }
 
 function onBackdrop(elBackdrop) {
